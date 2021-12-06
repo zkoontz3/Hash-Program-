@@ -28,7 +28,7 @@ int main()
 
     //Hashed Sort
     start = std::chrono::system_clock::now();
-    mergeHash(array1, m, n, compares1);
+    hashSort(array1, n);
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
