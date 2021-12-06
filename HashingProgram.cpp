@@ -1,5 +1,5 @@
 /*
-Zach Koontz, Colin McCarry, Sterphen Binkley, Alex McClellan
+Zach Koontz, Colin McCarry, Stephen Binkley, Alex McClellan
 Dr. Williams
 CSC-2710
 3 December 2021
