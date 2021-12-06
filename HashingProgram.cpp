@@ -15,8 +15,7 @@ Hashed vs Non-Hashed Sorting Program
 using namespace std;
 
 void merge(int arr[], int start, int mid, int end);
-void mergeHash(int arr[], int start, int end, int &compares);
-void mergeNonHash(int arr[], int start, int end, int &compares);
+void mergeSort(int arr[], int start, int end, int &compares);
 void hashSort(int arr[], int n, int &compares);
 
 int main()
@@ -36,7 +35,7 @@ int main()
 
     //Non-Hashed Sort
     start2 = std::chrono::system_clock::now();
-    mergeNonHash(array2, m, n, compares2);
+    mergeSort(array2, m, n, compares2);
     end2 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
     std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
@@ -70,23 +69,12 @@ void merge(int arr[], int start, int mid, int end)
   }
 }
 
-void mergeHash(int arr[], int start, int end, int &compares)
+void mergeSort(int arr[], int start, int end, int &compares)
 {
   if(start < end){
      int mid = start + (end - start)/2;
-     mergeHash(arr,start,mid,compares);
-     mergeHash(arr,mid + 1,end,compares);
-     merge(arr, start, mid, end);
-  }
-  compares++;
-}
-
-void mergeNonHash(int arr[], int start, int end, int &compares)
-{
-  if(start < end){
-     int mid = start + (end - start)/2;
-     mergeNonHash(arr,start,mid,compares);
-     mergeNonHash(arr,mid + 1,end,compares);
+     mergeSort(arr,start,mid,compares);
+     mergeSort(arr,mid + 1,end,compares);
      merge(arr, start, mid, end);
   }
   compares++;
