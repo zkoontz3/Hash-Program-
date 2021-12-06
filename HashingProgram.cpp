@@ -32,6 +32,7 @@ int main()
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
+    cout << "Compares: " << compares1 << endl;
 
     //Non-Hashed Sort
     start2 = std::chrono::system_clock::now();
@@ -39,6 +40,7 @@ int main()
     end2 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
     std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
+    cout << "Compares: " << compares2 << endl;
 
     return 0;
 }
