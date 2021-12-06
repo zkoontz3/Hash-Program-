@@ -29,7 +29,7 @@ int main()
     return 0;
 }
 
-void mergeint arr[], int start, int mid, int end)
+void merge(int arr[], int start, int mid, int end)
 {
    int length1 = mid - start + 1;
    int length2 = end - mid;  
@@ -70,7 +70,18 @@ void mergeint arr[], int start, int mid, int end)
   }
 }
 
-void mergeSort(int arr[], int start, int end, int &compares)
+void mergeHash(int arr[], int start, int end, int &compares)
+{
+  if(start < end){
+     int mid = start + (end - start)/2;
+     mergeSort(arr,start,mid,compares);
+     mergeSort(arr,mid + 1,end,compares);
+     merge(arr, start, mid, end);
+  }
+  compares++;
+}
+
+void mergeNonHash(int arr[], int start, int end, int &compares)
 {
   if(start < end){
      int mid = start + (end - start)/2;
