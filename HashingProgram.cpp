@@ -9,26 +9,27 @@ Hashing Sorting Program
 #include<iostream>
 #include<cstdlib>
 #include<string>
+#include<sys/time.h>
 
 using namespace std;
 
 void merge(int arr[], int start, int mid, int end);
-void mergeSort(int arr[], int start, int end, int &compares);
+void mergeHash(int arr[], int start, int end, int &compares);
+void mergeNonHash(int arr[], int start, int end, int &compares)
 
 int main()
 {
     //Variables and Array
-    int array[] = {1, 3, 2, 7, 5, 4, 8, 7};
-    int m = sizeof(a) / sizeof(a[0]);
-    int n = sizeof(a) / 2;
-    int o = sizeof(a);
+    int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, int array2[] = {1, 3, 2, 7, 5, 4, 8, 7}, m = sizeof(a) / sizeof(a[0]), n = sizeof(a) / 2, o = sizeof(a);
+    int compares1, compares2;
 
-    merge(array, m, n, o)
+    mergeHash(array1, m, o, compares1);
+    mergeNonHash(array2, m, o, compares2)
 
     return 0;
 }
 
-void merge(int arr[], int start, int mid, int end)
+void mergeint arr[], int start, int mid, int end)
 {
    int length1 = mid - start + 1;
    int length2 = end - mid;  
