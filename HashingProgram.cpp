@@ -20,7 +20,7 @@ void mergeNonHash(int arr[], int start, int end, int &compares)
 int main()
 {
     //Variables and Array
-    int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, int array2[] = {1, 3, 2, 7, 5, 4, 8, 7}, m = sizeof(a) / sizeof(a[0]), n = sizeof(a) / 2, o = sizeof(a);
+    int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, array2[] = {1, 3, 2, 7, 5, 4, 8, 7}, m = sizeof(a) / sizeof(a[0]), n = sizeof(a) / 2, o = sizeof(a);
     int compares1, compares2;
 
     mergeHash(array1, m, o, compares1);
