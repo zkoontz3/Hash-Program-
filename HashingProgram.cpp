@@ -19,13 +19,11 @@ int main()
 {
     //Variables and Array
     int array[] = {1, 3, 2, 7, 5, 4, 8, 7};
-    int n = sizeof(a);
+    int m = sizeof(a) / sizeof(a[0]);
+    int n = sizeof(a) / 2;
+    int o = sizeof(a);
 
-    //Hashing Algorithm
-    for (int i = 0; i < n; i++)
-    {
-        if arr[i] >
-    }
+    merge(array, m, n, o)
 
     return 0;
 }
