@@ -23,18 +23,21 @@ int main()
     //Variables and Array
     int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, array2[] = {1, 3, 2, 7, 5, 4, 8, 7}, m = 0, n = 7;
     int compares1, compares2;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
+    std::chrono::time_point<std::chrono::system_clock> start, end, start2, end2;
 
     //Hashed Sort
     start = std::chrono::system_clock::now();
     mergeHash(array1, m, n, compares1);
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
     std::cout << "Hashed Merge Sort Time: " << elapsed_seconds.count() << "s\n";
 
     //Non-Hashed Sort
+    start2 = std::chrono::system_clock::now();
     mergeNonHash(array2, m, n, compares2);
+    end2 = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
+    std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
 
     return 0;
 }
