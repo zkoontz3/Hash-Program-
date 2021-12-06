@@ -17,6 +17,7 @@ using namespace std;
 void merge(int arr[], int start, int mid, int end);
 void mergeHash(int arr[], int start, int end, int &compares);
 void mergeNonHash(int arr[], int start, int end, int &compares);
+void hashSort(int arr[], int n);
 
 int main()
 {
@@ -88,3 +89,42 @@ void mergeNonHash(int arr[], int start, int end, int &compares)
   }
   compares++;
 }
+
+void hashSort(int arr[], int n)
+{
+    int max = *max_element(arr, arr + n);
+    int min = abs(*min_element(arr, arr + n));
+    
+    int posNum[max + 1] = { 0 };
+    int negNum[min + 1] = { 0 };
+    
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] >= 0)
+            posNum[arr[i]] += 1;
+        else
+            negNum[abs(arr[i])] += 1;
+    }
+    
+    for (int i = min; i > 0; i--)
+    {
+        if (negNum[i])
+        {
+            for (int j = 0; j < negNum[i]; j++)
+            {
+                cout << (-1) * i << " ";
+            }
+        }
+    }
+    
+    for (int i = 0; i <= max; i++)
+    {
+        if (posNum[i])
+        {
+            for (int j = 0; j < posNum[i]; j++)
+            {
+                cout << i << " ";
+            }
+        }
+    }
+}         
