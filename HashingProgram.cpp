@@ -3,7 +3,7 @@ Zach Koontz, Colin McCarrie, Stephen Binkley, Alex McClellan
 Dr. Williams
 CSC-2710
 3 December 2021
-Hashing Sorting Program
+Hashed vs Non-Hashed Sorting Program
 */
 
 #include<iostream>
@@ -31,7 +31,7 @@ int main()
     mergeHash(array1, m, n, compares1);
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    std::cout << "Hashed Merge Sort Time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
 
     //Non-Hashed Sort
     start2 = std::chrono::system_clock::now();
