@@ -17,7 +17,7 @@ using namespace std;
 void merge(int arr[], int start, int mid, int end);
 void mergeHash(int arr[], int start, int end, int &compares);
 void mergeNonHash(int arr[], int start, int end, int &compares);
-void hashSort(int arr[], int n);
+void hashSort(int arr[], int n, int &compares);
 
 int main()
 {
@@ -28,7 +28,7 @@ int main()
 
     //Hashed Sort
     start = std::chrono::system_clock::now();
-    hashSort(array1, n);
+    hashSort(array1, n, compares1);
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
@@ -90,7 +90,7 @@ void mergeNonHash(int arr[], int start, int end, int &compares)
   compares++;
 }
 
-void hashSort(int arr[], int n)
+void hashSort(int arr[], int n, int &compares)
 {
     int max = *max_element(arr, arr + n);
     int min = abs(*min_element(arr, arr + n));
@@ -101,9 +101,15 @@ void hashSort(int arr[], int n)
     for (int i = 0; i < n; i++)
     {
         if (arr[i] >= 0)
+        {
             posNum[arr[i]] += 1;
+            compares++;
+        }
         else
+        {
             negNum[abs(arr[i])] += 1;
+            compares++;
+        }
     }
     
     for (int i = min; i > 0; i--)
@@ -113,6 +119,7 @@ void hashSort(int arr[], int n)
             for (int j = 0; j < negNum[i]; j++)
             {
                 cout << (-1) * i << " ";
+                compares++;
             }
         }
     }
@@ -124,6 +131,7 @@ void hashSort(int arr[], int n)
             for (int j = 0; j < posNum[i]; j++)
             {
                 cout << i << " ";
+                compares++;
             }
         }
     }
