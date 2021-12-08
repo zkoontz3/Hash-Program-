@@ -126,47 +126,41 @@ void mergeSort(int arr[], int start, int end, int &compares)
 //Algorithm provided from TutorialCup
 void hashSort(int arr[], int n, int &compares)
 {
-    int max = *max_element(arr, arr + n);
-    int min = abs(*min_element(arr, arr + n));
+    int max = *std::max_element(arr, arr + n);
+    int min = abs(*std::min_element(arr, arr + n));
     
-    int posNum[max] = { 0 };
-    int negNum[min] = { 0 };
+    int positiveNum[max + 1] = { 0 };
+    int negativeNum[min + 1] = { 0 };
     
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] >= 0)
-        {
-            posNum[arr[i]] += 1;
+        if (arr[i] >= 0) {
+            positiveNum[arr[i]] += 1;
             compares++;
         }
-        else
-        {
-            negNum[abs(arr[i])] += 1;
+        else {
+            negativeNum[abs(arr[i])] += 1;
             compares++;
         }
     }
-    
     for (int i = min; i > 0; i--)
     {
-        if (negNum[i])
+        if (negativeNum[i])
         {
-            for (int j = 0; j < negNum[i]; j++)
+            for (int j = 0; j < negativeNum[i]; j++)
             {
                 cout << (-1) * i << " ";
-                compares++;
             }
         }
     }
-    
     for (int i = 0; i <= max; i++)
     {
-        if (posNum[i])
+        if (positiveNum[i])
         {
-            for (int j = 0; j < posNum[i]; j++)
+            for (int j = 0; j < positiveNum[i]; j++)
             {
                 cout << i << " ";
-                compares++;
             }
         }
     }
-}         
+}
