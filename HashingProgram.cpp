@@ -40,7 +40,7 @@ int main()
     start = std::chrono::system_clock::now();
     hashSort(array1, n, compares1);
     end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
+    std::chrono::duration<double> elapsed_seconds = (end - start);
     std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
     cout << "Compares: " << compares1 << endl;
 
@@ -48,7 +48,7 @@ int main()
     start3 = std::chrono::system_clock::now();
     hashSort(randomArray, size, compares3);
     end3 = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds3 = end3 - start3;
+    std::chrono::duration<double> elapsed_seconds3 = (end3 - start3);
     std::cout << "Random Array Hashed Sort Time: " << elapsed_seconds3.count() << "s\n";
     cout << "Compares: " << compares3 << endl;
 
@@ -56,7 +56,7 @@ int main()
     start2 = std::chrono::system_clock::now();
     mergeSort(array2, m, n, compares2);
     end2 = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
+    std::chrono::duration<double> elapsed_seconds2 = (end2 - start2);
     std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
     cout << "Compares: " << compares2 << endl;
 
@@ -64,7 +64,7 @@ int main()
     start4 = std::chrono::system_clock::now();
     mergeSort(randomArray2, m, size, compares4);
     end4 = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds4 = end4 - start4;
+    std::chrono::duration<double> elapsed_seconds4 = (end4 - start4);
     std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds4.count() << "s\n";
     cout << "Compares: " << compares4 << endl;
 
