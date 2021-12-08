@@ -65,7 +65,7 @@ int main()
     mergeSort(randomArray2, m, size, compares4);
     end4 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds4 = (end4 - start4);
-    std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds4.count() << "s\n";
+    std::cout << "Random Array Non-Hashed Merge Sort Time: " << elapsed_seconds4.count() << "s\n";
     cout << "Compares: " << compares4 << endl;
 
     return 0;
@@ -128,6 +128,8 @@ void hashSort(int arr[], int n, int &compares)
 {
     int max = *std::max_element(arr, arr + n);
     int min = abs(*std::min_element(arr, arr + n));
+    cout << max << endl;
+    cout << min << endl;
 
     int positiveNum[1001] = { 0 };
     int negativeNum[1] = { 0 };
