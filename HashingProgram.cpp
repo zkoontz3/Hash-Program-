@@ -128,10 +128,9 @@ void hashSort(int arr[], int n, int &compares)
 {
     int max = *std::max_element(arr, arr + n);
     int min = abs(*std::min_element(arr, arr + n));
-    max++;
-    min++;
-    int positiveNum[max];
-    int negativeNum[min];
+    
+    int positiveNum[max + 1];
+    int negativeNum[min + 1];
 
     for (int i = 0; i < max; i++)
     {
