@@ -45,7 +45,7 @@ int main()
     cout << "Compares: " << compares1 << endl;
 
     //Hashed Sort: Random Array
-    start = std::chrono::system_clock::now();
+    start3 = std::chrono::system_clock::now();
     hashSort(randomArray, size, compares3);
     end3 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds3 = end3 - start3;
@@ -61,7 +61,7 @@ int main()
     cout << "Compares: " << compares2 << endl;
 
     //Non-Hashed Sort: Random Array
-    start2 = std::chrono::system_clock::now();
+    start4 = std::chrono::system_clock::now();
     mergeSort(randomArray2, m, size, compares4);
     end4 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds4 = end4 - start4;
