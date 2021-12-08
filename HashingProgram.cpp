@@ -44,23 +44,39 @@ int main()
     return 0;
 }
 
+
 void merge(int arr[], int start, int mid, int end)
 {
    int length1 = mid - start + 1;
    int length2 = end - mid;  
-
-    int leftArr[length1], rightArr[length2];
+   int leftArr[length1], rightArr[length2];
 
   for (int i = 0; i < length1; i++)
     leftArr[i] = arr[start + i];
   for (int j = 0; j < length2; j++)
     rightArr[j] = arr[mid + 1 + j];
 
-    //Hashing Algorithm
-    for (int i = 0; i < n; i++)
-    {
-        if arr[i] >
+  int a, b, c;
+  a = 0;
+  b = 0;
+  c = start;
+
+  while (a < length1 && b < length2) {
+    if (leftArr[a] <= rightArr[b]) {
+      arr[c] = leftArr[a];
+      a++;
+    } else {
+      arr[c] = rightArr[b];
+      b++;
     }
+    c++;
+  }
+
+  while (a < length1) {
+    arr[c] = leftArr[a];
+    a++;
+    c++;
+  }
 
   while (b < length2) {
     arr[c] = rightArr[b];
@@ -80,13 +96,14 @@ void mergeSort(int arr[], int start, int end, int &compares)
   compares++;
 }
 
+//Algorithm provided from TutorialCup
 void hashSort(int arr[], int n, int &compares)
 {
     int max = *max_element(arr, arr + n);
     int min = abs(*min_element(arr, arr + n));
     
-    int posNum[max + 1] = { 0 };
-    int negNum[min + 1] = { 0 };
+    int posNum[max] = { 0 };
+    int negNum[min] = { 0 };
     
     for (int i = 0; i < n; i++)
     {
