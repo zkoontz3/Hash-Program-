@@ -21,8 +21,8 @@ void hashSort(int arr[], int n, int &compares);
 int main()
 {
     //Variables and Array
-    int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, array2[] = {1, 3, 2, 7, 5, 4, 8, 7}, m = 0, n = 7;
-    int compares1, compares2;
+    int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, array2[] = {1, 3, 2, 7, 5, 4, 8, 7}
+    int compares1, compares2, n = sizeof(array1)/sizeof(array1[0]), m = 0;
     std::chrono::time_point<std::chrono::system_clock> start, end, start2, end2;
 
     //Hashed Sort
