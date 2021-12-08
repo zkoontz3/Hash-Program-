@@ -140,7 +140,7 @@ void hashSort(int arr[], int n, int &compares)
 
     for (int j = 0; j < min; j++)
     {
-        negativeNum[min] = 0;
+        negativeNum[j] = 0;
     }
     
     for (int i = 0; i < n; i++)
