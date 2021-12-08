@@ -22,10 +22,21 @@ int main()
 {
     //Variables and Array
     int array1[] = {1, 3, 2, 7, 5, 4, 8, 7}, array2[] = {1, 3, 2, 7, 5, 4, 8, 7};
-    int compares1, compares2, n = sizeof(array1)/sizeof(array1[0]), m = 0;
-    std::chrono::time_point<std::chrono::system_clock> start, end, start2, end2;
+    int compares1, compares2, compares3, compares4, n = sizeof(array1)/sizeof(array1[0]), m = 0, size = 1000;
+    int randomArray[size], randomArray2[size];
+    std::chrono::time_point<std::chrono::system_clock> start, end, start2, end2, start3, end3, start4, end4;
 
-    //Hashed Sort
+    //Random Array Generator
+    srand(time(0));
+
+    for (int i = 0; i < size; i++)
+    {
+        int x = rand() % 1000;
+        randomArray[i] = x;
+        randomArray2[i] = x;
+    }
+
+    //Hashed Sort: Small Array
     start = std::chrono::system_clock::now();
     hashSort(array1, n, compares1);
     end = std::chrono::system_clock::now();
@@ -33,13 +44,29 @@ int main()
     std::cout << "Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
     cout << "Compares: " << compares1 << endl;
 
-    //Non-Hashed Sort
+    //Hashed Sort: Random Array
+    start = std::chrono::system_clock::now();
+    hashSort(randomArray, size, compares3);
+    end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds3 = end3 - start3;
+    std::cout << "Random Array Hashed Sort Time: " << elapsed_seconds.count() << "s\n";
+    cout << "Compares: " << compares3 << endl;
+
+    //Non-Hashed Sort: Small Array
     start2 = std::chrono::system_clock::now();
     mergeSort(array2, m, n, compares2);
     end2 = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
     std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
     cout << "Compares: " << compares2 << endl;
+
+    //Non-Hashed Sort: Random Array
+    start2 = std::chrono::system_clock::now();
+    mergeSort(randomArray2, m, size, compares4);
+    end2 = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds4 = end4 - start4;
+    std::cout << "Non-Hashed Merge Sort Time: " << elapsed_seconds2.count() << "s\n";
+    cout << "Compares: " << compares4 << endl;
 
     return 0;
 }
